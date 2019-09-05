@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-11 15:01:12
- * @LastEditTime: 2019-08-11 15:40:22
+ * @LastEditTime: 2019-09-05 22:41:44
  * @LastEditors: Please set LastEditors
  */
 const express = require('express')
@@ -35,6 +35,25 @@ const router = express.Router()
 router.get('/simple/get', function(req, res) {
   res.json({
     msg: `hello world`
+  })
+})
+router.get('/base/get', function(req, res) {
+  res.json(req.query)
+})
+router.post('/base/post', function(req, res) {
+  res.json(req.body)
+})
+
+router.post('/base/buffer', function(req, res) {
+  let msg = []
+  req.on('data', (chunk) => {
+    if (chunk) {
+      msg.push(chunk)
+    }
+  })
+  req.on('end', () => {
+    let buf = Buffer.concat(msg)
+    res.json(buf.toJSON())
   })
 })
 
