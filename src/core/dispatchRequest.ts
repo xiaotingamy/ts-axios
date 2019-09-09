@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-11 14:39:10
- * @LastEditTime: 2019-09-08 22:24:44
+ * @LastEditTime: 2019-09-09 16:36:01
  * @LastEditors: Please set LastEditors
  */
 import { AxiosRequestConfig, AxiosPromise, AxiosResponse } from '../types'
@@ -13,7 +13,6 @@ import { processHeaders } from '../helpers/headers'
 
 export default function dispatchRequest(config: AxiosRequestConfig): AxiosPromise {
   processConfig(config)
-  // todoz
   return xhr(config).then(res => {
     return transformResponseData(res)
   })
