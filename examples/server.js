@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-11 15:01:12
- * @LastEditTime: 2019-09-09 21:10:54
+ * @LastEditTime: 2019-11-05 23:21:43
  * @LastEditors: Please set LastEditors
  */
 const express = require('express')
@@ -41,6 +41,8 @@ registerErrorRouter()
 registerExtendRouter()
 
 registerInterceptorRouter()
+
+registerConfigRouter ()
 
 app.use(router)
 
